@@ -145,7 +145,7 @@ h3,
 h4 {
   margin: 0;
   font-weight: 600;
-  color: var(--color-cp-ink);
+  color: inherit;
   letter-spacing: -0.01em;
 }
 
