@@ -44,7 +44,7 @@ export default function DashboardPage() {
                 <FilterPill>עברו לסבב הבא</FilterPill>
                 <FilterPill>בהמתנה</FilterPill>
               </div>
-              <button className="inline-flex items-center gap-2 rounded-full px-4 py-[10px] min-h-11 font-medium text-[14px] bg-(--color-purple) text-white hover:bg-(--color-purple-deep) transition shrink-0">
+              <button className="inline-flex items-center gap-2 rounded-full px-4 py-[10px] min-h-[44px] font-medium text-[14px] bg-(--color-purple) text-white hover:bg-(--color-purple-deep) transition shrink-0">
                 <PlusIcon />
                 ראיון חדש
               </button>
@@ -55,7 +55,7 @@ export default function DashboardPage() {
           <div className="flex justify-start mb-[14px]">
             <Link
               href="/compare"
-              className="inline-flex items-center gap-1 text-(--color-ink) text-[13px] font-medium px-[10px] py-[8px] min-h-11 rounded-full hover:bg-[#F0F0F3] transition"
+              className="inline-flex items-center gap-1 text-(--color-ink) text-[13px] font-medium px-[10px] py-[8px] min-h-[44px] rounded-full hover:bg-[#F0F0F3] transition"
             >
               <CompareIcon />
               השווה מועמדים
@@ -234,7 +234,7 @@ function FilterPill({
 }) {
   return (
     <button
-      className={`inline-flex items-center px-[14px] py-[8px] min-h-11 rounded-full text-[13.5px] font-medium transition whitespace-nowrap ${
+      className={`inline-flex items-center px-[14px] py-[8px] min-h-[44px] rounded-full text-[13.5px] font-medium transition whitespace-nowrap ${
         active
           ? "bg-(--color-lavender) text-(--color-purple)"
           : "bg-transparent text-(--color-ink) hover:bg-[#F0F0F3]"

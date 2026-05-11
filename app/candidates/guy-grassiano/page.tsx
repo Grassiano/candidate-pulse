@@ -25,7 +25,7 @@ export default function GuyDetailPage() {
           <div className="text-(--color-muted) text-[13px] mb-[10px] flex items-center gap-[6px]">
             <Link
               href="/"
-              className="inline-flex items-center min-h-11 sm:min-h-0 py-2 sm:py-0 hover:text-(--color-ink) transition"
+              className="inline-flex items-center min-h-[44px] sm:min-h-0 py-2 sm:py-0 hover:text-(--color-ink) transition"
             >
               מועמדים
             </Link>
@@ -58,16 +58,16 @@ export default function GuyDetailPage() {
               <a
                 href="/guy-grassiano-report.pdf"
                 download
-                className="inline-flex items-center gap-2 rounded-full bg-white border border-(--color-border-strong) px-4 py-[10px] min-h-11 text-[14px] font-medium text-(--color-ink) hover:bg-[#FAFAFB] transition shrink-0"
+                className="inline-flex items-center gap-2 rounded-full bg-white border border-(--color-border-strong) px-4 py-[10px] min-h-[44px] text-[14px] font-medium text-(--color-ink) hover:bg-[#FAFAFB] transition shrink-0"
               >
                 <DownloadIcon />
                 ייצוא <span className="latin">PDF</span>
               </a>
-              <button className="inline-flex items-center gap-2 rounded-full bg-white border border-(--color-border-strong) px-4 py-[10px] min-h-11 text-[14px] font-medium text-(--color-ink) hover:bg-[#FAFAFB] transition shrink-0">
+              <button className="inline-flex items-center gap-2 rounded-full bg-white border border-(--color-border-strong) px-4 py-[10px] min-h-[44px] text-[14px] font-medium text-(--color-ink) hover:bg-[#FAFAFB] transition shrink-0">
                 <ShareIcon />
                 שלח ל-<span className="latin">VP AI</span>
               </button>
-              <button className="inline-flex items-center gap-2 rounded-full bg-(--color-purple) text-white px-4 py-[10px] min-h-11 text-[14px] font-medium hover:bg-(--color-purple-deep) transition shrink-0">
+              <button className="inline-flex items-center gap-2 rounded-full bg-(--color-purple) text-white px-4 py-[10px] min-h-[44px] text-[14px] font-medium hover:bg-(--color-purple-deep) transition shrink-0">
                 <CalendarIcon />
                 קבע סבב שני
               </button>
@@ -205,7 +205,7 @@ export default function GuyDetailPage() {
 
           <Link
             href="/compare"
-            className="flex justify-end items-center text-(--color-muted) text-[13px] mt-6 py-3 min-h-11 hover:text-(--color-purple) transition"
+            className="flex justify-end items-center text-(--color-muted) text-[13px] mt-6 py-3 min-h-[44px] hover:text-(--color-purple) transition"
           >
             השווה עם מועמדים אחרים →
           </Link>

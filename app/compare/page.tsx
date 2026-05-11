@@ -45,7 +45,7 @@ export default function ComparePage() {
               <div className="text-(--color-muted) text-[13px] mb-[10px] flex items-center gap-[6px]">
                 <Link
                   href="/"
-                  className="inline-flex items-center min-h-11 sm:min-h-0 py-2 sm:py-0 hover:text-(--color-ink) transition"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-2 sm:py-0 hover:text-(--color-ink) transition"
                 >
                   מועמדים
                 </Link>
@@ -64,12 +64,12 @@ export default function ComparePage() {
               <a
                 href="/guy-grassiano-report.pdf"
                 download
-                className="inline-flex items-center gap-2 rounded-full bg-white border border-(--color-border-strong) px-4 py-[10px] min-h-11 text-[14px] font-medium text-(--color-ink) hover:bg-[#FAFAFB] transition shrink-0"
+                className="inline-flex items-center gap-2 rounded-full bg-white border border-(--color-border-strong) px-4 py-[10px] min-h-[44px] text-[14px] font-medium text-(--color-ink) hover:bg-[#FAFAFB] transition shrink-0"
               >
                 <DownloadIcon />
                 ייצוא <span className="latin">PDF</span>
               </a>
-              <button className="inline-flex items-center gap-2 rounded-full bg-(--color-purple) text-white px-4 py-[10px] min-h-11 text-[14px] font-medium hover:bg-(--color-purple-deep) transition shrink-0">
+              <button className="inline-flex items-center gap-2 rounded-full bg-(--color-purple) text-white px-4 py-[10px] min-h-[44px] text-[14px] font-medium hover:bg-(--color-purple-deep) transition shrink-0">
                 <ShareIcon />
                 שתף עם <span className="latin">VP AI</span>
               </button>
@@ -206,11 +206,11 @@ export default function ComparePage() {
                 כגיבוי טכני.
               </p>
               <div className="flex flex-col sm:flex-row gap-2 sm:justify-start">
-                <button className="inline-flex items-center justify-center gap-2 rounded-full bg-(--color-purple) text-white px-4 py-[10px] min-h-11 text-[14px] font-medium hover:bg-(--color-purple-deep) transition">
+                <button className="inline-flex items-center justify-center gap-2 rounded-full bg-(--color-purple) text-white px-4 py-[10px] min-h-[44px] text-[14px] font-medium hover:bg-(--color-purple-deep) transition">
                   <CalendarIcon />
                   קבע ראיון עם גיא
                 </button>
-                <button className="inline-flex items-center justify-center gap-2 rounded-full px-4 py-[10px] min-h-11 text-[14px] font-medium text-(--color-ink) hover:bg-[#F0F0F3] transition">
+                <button className="inline-flex items-center justify-center gap-2 rounded-full px-4 py-[10px] min-h-[44px] text-[14px] font-medium text-(--color-ink) hover:bg-[#F0F0F3] transition">
                   שמור גם את איתן בלולאה
                 </button>
               </div>
@@ -219,7 +219,7 @@ export default function ComparePage() {
 
           <Link
             href="/"
-            className="inline-flex items-center gap-[6px] mt-6 sm:mt-7 py-3 min-h-11 text-(--color-muted) text-[13.5px] font-medium hover:text-(--color-purple) transition"
+            className="inline-flex items-center gap-[6px] mt-6 sm:mt-7 py-3 min-h-[44px] text-(--color-muted) text-[13.5px] font-medium hover:text-(--color-purple) transition"
           >
             <ChevRight />
             חזור לדשבורד
