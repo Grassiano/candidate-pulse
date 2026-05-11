@@ -22,11 +22,15 @@ export default function GuyDetailPage() {
       <TopNav />
       <main className="flex-1 py-6 sm:py-9 pb-12 sm:pb-14">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-8">
-          <div className="text-(--color-muted) text-[13px] mb-[10px]">
-            <Link href="/" className="hover:text-(--color-ink)">
+          <div className="text-(--color-muted) text-[13px] mb-[10px] flex items-center gap-[6px]">
+            <Link
+              href="/"
+              className="inline-flex items-center min-h-11 sm:min-h-0 py-2 sm:py-0 hover:text-(--color-ink) transition"
+            >
               מועמדים
-            </Link>{" "}
-            ← <span className="text-(--color-ink)">גיא גרסיאנו</span>
+            </Link>
+            <span>←</span>
+            <span className="text-(--color-ink)">גיא גרסיאנו</span>
           </div>
 
           {/* Header — stacks on mobile */}
@@ -201,7 +205,7 @@ export default function GuyDetailPage() {
 
           <Link
             href="/compare"
-            className="block text-end text-(--color-muted) text-[13px] mt-6 py-2 hover:text-(--color-purple) transition"
+            className="flex justify-end items-center text-(--color-muted) text-[13px] mt-6 py-3 min-h-11 hover:text-(--color-purple) transition"
           >
             השווה עם מועמדים אחרים →
           </Link>

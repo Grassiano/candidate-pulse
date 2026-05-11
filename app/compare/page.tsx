@@ -42,11 +42,15 @@ export default function ComparePage() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-8">
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-6 sm:mb-7 gap-4 sm:gap-6">
             <div className="flex-1 min-w-0">
-              <div className="text-(--color-muted) text-[13px] mb-[10px]">
-                <Link href="/" className="hover:text-(--color-ink)">
+              <div className="text-(--color-muted) text-[13px] mb-[10px] flex items-center gap-[6px]">
+                <Link
+                  href="/"
+                  className="inline-flex items-center min-h-11 sm:min-h-0 py-2 sm:py-0 hover:text-(--color-ink) transition"
+                >
                   מועמדים
-                </Link>{" "}
-                ← <span className="text-(--color-ink)">השוואה</span>
+                </Link>
+                <span>←</span>
+                <span className="text-(--color-ink)">השוואה</span>
               </div>
               <h1 className="text-[22px] sm:text-[30px] leading-[1.2] tracking-[-0.01em]">
                 השוואת מועמדים
@@ -215,7 +219,7 @@ export default function ComparePage() {
 
           <Link
             href="/"
-            className="inline-flex items-center gap-[6px] mt-6 sm:mt-7 py-2 text-(--color-muted) text-[13.5px] font-medium hover:text-(--color-purple) transition"
+            className="inline-flex items-center gap-[6px] mt-6 sm:mt-7 py-3 min-h-11 text-(--color-muted) text-[13.5px] font-medium hover:text-(--color-purple) transition"
           >
             <ChevRight />
             חזור לדשבורד
