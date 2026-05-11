@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-purple: #5D07E2;
+  --color-purple-deep: #4D04C0;
+  --color-ink: #1E1A39;
+  --color-ink-deep: #322B5F;
+  --color-muted: #67686E;
+  --color-lavender: #EDE4FB;
+  --color-lavender-border: #E0CFF8;
+  --color-mint: #3FE0B7;
+  --color-mint-soft: #E6FAF3;
+  --color-mint-bg: #D7F7EA;
+  --color-mint-text: #0F7A5B;
+  --color-yellow: #FCEFC7;
+  --color-yellow-strong: #FBE39A;
+  --color-yellow-text: #9A6700;
+  --color-yellow-deep: #8A5C00;
+  --color-pink: #F8D9E3;
+  --color-pink-border: #EFC4D4;
+  --color-card: #FFFFFF;
+  --color-bg: #F7F7F8;
+  --color-border: #ECECEF;
+  --color-border-strong: #E2E2E7;
+  --color-gray-soft: #EFEFF2;
+
+  --font-sans: "Heebo", "Inter", system-ui, -apple-system, sans-serif;
+  --font-latin: "Inter", "Heebo", system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(30, 26, 57, 0.05);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+.latin {
+  font-family: var(--font-latin);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Ring (used for fit-confidence) */
+.ring-meter {
+  --size: 96px;
+  --val: 78;
+  --col: var(--color-mint);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 999px;
+  background: conic-gradient(var(--col) calc(var(--val) * 1%), var(--color-lavender) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.ring-meter::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  background: #fff;
+  border-radius: 999px;
+}
+.ring-meter > .ring-val {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--color-ink);
+  letter-spacing: -0.02em;
+}
+
+/* Quote block (strength evidence) */
+.quote-text::before {
+  content: "“";
+  color: #C6C6CC;
+  margin-inline-end: 2px;
+}
+.quote-text::after {
+  content: "”";
+  color: #C6C6CC;
+  margin-inline-start: 2px;
+}
+
+/* "Just analyzed" badge dot */
+.badge-dot::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-mint);
+  box-shadow: 0 0 0 3px rgba(63, 224, 183, 0.25);
+  display: inline-block;
+  margin-inline-end: 4px;
+  vertical-align: middle;
+}
+
+/* Half-filled compare dot */
+.dot-half {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--color-lavender);
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.dot-half::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-purple);
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
 }
