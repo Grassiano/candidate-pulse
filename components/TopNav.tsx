@@ -1,36 +1,39 @@
 "use client";
-import { useState } from "react";
 import { SearchIcon, BellIcon } from "./icons";
+import { useSettings } from "./SettingsProvider";
+import { SettingsCog } from "./SettingsCog";
 
 export function TopNav() {
-  const [lang, setLang] = useState<"he" | "en">("he");
+  const { t } = useSettings();
 
   return (
-    <nav className="bg-(--color-card) border-b border-(--color-border) py-[12px] sm:py-[14px]">
+    <nav className="bg-(--color-cp-card) border-b border-(--color-cp-border) py-[12px] sm:py-[14px]">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-8 flex items-center gap-3 sm:gap-6">
         <a
           href="/"
+          aria-label="Candidate Pulse"
           className="flex items-center gap-[10px] shrink-0 min-h-[44px]"
         >
           <span
             className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] rounded-full bg-(--color-mint)"
             style={{ boxShadow: "inset 0 -2px 0 rgba(0,0,0,0.04)" }}
           />
-          <span className="latin font-semibold text-[15px] sm:text-[17px] tracking-[-0.01em] text-(--color-ink)">
+          <span className="latin font-semibold text-[15px] sm:text-[17px] tracking-[-0.01em] text-(--color-cp-ink)">
             Candidate Pulse
           </span>
         </a>
 
-        {/* Search input — hidden below sm, shown as icon button on mobile */}
+        {/* Search input — hidden below sm */}
         <div className="hidden sm:block flex-1 max-w-[460px] mx-auto relative">
           <input
             type="text"
-            placeholder="חיפוש מועמדים..."
-            className="w-full border border-(--color-border) bg-[#FAFAFB] rounded-full py-[10px] pr-[44px] pl-[18px] text-[14px] text-(--color-ink) outline-none focus:border-[#D9C9F6] focus:bg-white transition placeholder:text-[#9A9AA1]"
+            placeholder={t("searchPlaceholder")}
+            className="w-full border border-(--color-cp-border) bg-(--color-cp-card-2) rounded-full py-[10px] pe-[44px] ps-[18px] text-[14px] text-(--color-cp-ink) outline-none focus:border-(--color-purple) focus:bg-(--color-cp-card) transition placeholder:text-(--color-cp-muted)"
+            aria-label={t("search")}
           />
           <SearchIcon
             size={16}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-[#A0A0A7]"
+            className="absolute end-4 top-1/2 -translate-y-1/2 text-(--color-cp-muted)"
           />
         </div>
 
@@ -38,45 +41,24 @@ export function TopNav() {
 
         <div className="flex items-center gap-2 sm:gap-[14px] shrink-0">
           <button
-            aria-label="search"
-            className="sm:hidden w-[44px] h-[44px] rounded-full border border-(--color-border) bg-white inline-flex items-center justify-center text-(--color-muted)"
+            aria-label={t("search")}
+            className="sm:hidden w-[44px] h-[44px] rounded-full border border-(--color-cp-border) bg-(--color-cp-card) inline-flex items-center justify-center text-(--color-cp-muted)"
           >
             <SearchIcon size={16} />
           </button>
-          <div className="flex bg-[#F2F2F4] rounded-full p-[3px] text-[13px] font-medium">
-            <button
-              onClick={() => setLang("he")}
-              className={`px-3 min-h-[38px] sm:min-h-0 sm:py-[5px] rounded-full leading-none inline-flex items-center transition ${
-                lang === "he"
-                  ? "bg-white text-(--color-ink) shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                  : "text-(--color-muted)"
-              }`}
-            >
-              עברית
-            </button>
-            <button
-              onClick={() => setLang("en")}
-              className={`latin px-3 min-h-[38px] sm:min-h-0 sm:py-[5px] rounded-full leading-none inline-flex items-center transition text-[12px] tracking-[0.02em] ${
-                lang === "en"
-                  ? "bg-white text-(--color-ink) shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                  : "text-(--color-muted)"
-              }`}
-            >
-              EN
-            </button>
-          </div>
           <button
-            aria-label="notifications"
-            className="hidden sm:inline-flex w-9 h-9 rounded-full border border-(--color-border) bg-white items-center justify-center text-(--color-ink) relative"
+            aria-label={t("notifications")}
+            className="hidden sm:inline-flex w-[44px] h-[44px] rounded-full border border-(--color-cp-border) bg-(--color-cp-card) items-center justify-center text-(--color-cp-ink) relative"
           >
             <BellIcon size={16} />
             <span
-              className="absolute top-[7px] right-2 w-[7px] h-[7px] bg-(--color-purple) rounded-full border-2 border-white"
+              className="absolute top-[7px] end-2 w-[7px] h-[7px] bg-(--color-purple) rounded-full border-2 border-(--color-cp-card)"
               aria-hidden
             />
           </button>
-          <div className="w-9 h-9 rounded-full inline-flex items-center justify-center font-semibold text-[13px] text-(--color-ink) bg-(--color-lavender) border border-(--color-lavender-border)">
-            ל.א
+          <SettingsCog />
+          <div className="latin w-[44px] h-[44px] rounded-full inline-flex items-center justify-center font-semibold text-[13px] text-(--color-cp-ink) bg-(--color-cp-lavender) border border-(--color-cp-border-strong)">
+            L.O
           </div>
         </div>
       </div>

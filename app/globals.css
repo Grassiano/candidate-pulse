@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
+  /* Brand (mostly stable across themes; minor tweaks in .dark below) */
   --color-purple: #5D07E2;
   --color-purple-deep: #4D04C0;
-  --color-ink: #1E1A39;
-  --color-ink-deep: #322B5F;
-  --color-muted: #67686E;
-  --color-lavender: #EDE4FB;
-  --color-lavender-border: #E0CFF8;
   --color-mint: #3FE0B7;
   --color-mint-soft: #E6FAF3;
   --color-mint-bg: #D7F7EA;
@@ -18,17 +16,85 @@
   --color-yellow-deep: #8A5C00;
   --color-pink: #F8D9E3;
   --color-pink-border: #EFC4D4;
+  --color-lavender: #EDE4FB;
+  --color-lavender-border: #E0CFF8;
+
+  /* Legacy semantic tokens (kept for backwards-compat with existing classes) */
+  --color-ink: #1E1A39;
+  --color-ink-deep: #322B5F;
+  --color-muted: #67686E;
   --color-card: #FFFFFF;
   --color-bg: #F7F7F8;
   --color-border: #ECECEF;
   --color-border-strong: #E2E2E7;
   --color-gray-soft: #EFEFF2;
 
+  /* Theme-aware tokens — use these going forward */
+  --color-cp-bg: #F7F7F8;
+  --color-cp-card: #FFFFFF;
+  --color-cp-card-2: #FAFAFB;
+  --color-cp-ink: #1E1A39;
+  --color-cp-ink-soft: #322B5F;
+  --color-cp-muted: #67686E;
+  --color-cp-border: #ECECEF;
+  --color-cp-border-strong: #E2E2E7;
+  --color-cp-lavender: #EDE4FB;
+  --color-cp-lavender-text: #5D07E2;
+  --color-cp-mint-bg: #D7F7EA;
+  --color-cp-mint-text: #0F7A5B;
+  --color-cp-yellow: #FCEFC7;
+  --color-cp-yellow-strong: #FBE39A;
+  --color-cp-yellow-text: #9A6700;
+  --color-cp-yellow-deep: #8A5C00;
+  --color-cp-quote-bg: #FAFAFB;
+  --color-cp-overlay-mint: rgba(63, 224, 183, 0.06);
+  --color-cp-overlay-mint-strong: rgba(63, 224, 183, 0.14);
+  --color-cp-quote-quote: #C6C6CC;
+
   --font-sans: "Heebo", "Inter", system-ui, -apple-system, sans-serif;
   --font-latin: "Inter", "Heebo", system-ui, sans-serif;
 
   --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 2px 8px rgba(30, 26, 57, 0.05);
+}
+
+/* Dark mode token overrides */
+:where(.dark) {
+  --color-cp-bg: #0E0B1F;
+  --color-cp-card: #1A1532;
+  --color-cp-card-2: #221C3F;
+  --color-cp-ink: #F2EEFB;
+  --color-cp-ink-soft: #D4C8FA;
+  --color-cp-muted: #9E9AB5;
+  --color-cp-border: #2A2447;
+  --color-cp-border-strong: #3A3160;
+  --color-cp-lavender: #2D2253;
+  --color-cp-lavender-text: #C5A8FA;
+  --color-cp-mint-bg: #103D2F;
+  --color-cp-mint-text: #6FE9C3;
+  --color-cp-yellow: #3A2E12;
+  --color-cp-yellow-strong: #4A3A1A;
+  --color-cp-yellow-text: #F4C75B;
+  --color-cp-yellow-deep: #E0B244;
+  --color-cp-quote-bg: #221C3F;
+  --color-cp-overlay-mint: rgba(63, 224, 183, 0.10);
+  --color-cp-overlay-mint-strong: rgba(63, 224, 183, 0.18);
+  --color-cp-quote-quote: #4A436B;
+}
+
+/* Backwards-compat: also flip the legacy "--color-*" tokens in dark mode so
+   any class that still references them adapts automatically. */
+:where(.dark) {
+  --color-card: var(--color-cp-card);
+  --color-bg: var(--color-cp-bg);
+  --color-ink: var(--color-cp-ink);
+  --color-ink-deep: var(--color-cp-ink-soft);
+  --color-muted: var(--color-cp-muted);
+  --color-border: var(--color-cp-border);
+  --color-border-strong: var(--color-cp-border-strong);
+  --color-lavender: var(--color-cp-lavender);
+  --color-lavender-border: var(--color-cp-border-strong);
+  --color-gray-soft: var(--color-cp-border);
 }
 
 * {
@@ -39,8 +105,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--color-bg);
-  color: var(--color-ink);
+  background: var(--color-cp-bg);
+  color: var(--color-cp-ink);
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: 15px;
@@ -49,6 +115,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 body {
@@ -80,7 +147,7 @@ h3,
 h4 {
   margin: 0;
   font-weight: 600;
-  color: var(--color-ink);
+  color: var(--color-cp-ink);
   letter-spacing: -0.01em;
 }
 
@@ -98,7 +165,10 @@ h4 {
   width: var(--size);
   height: var(--size);
   border-radius: 999px;
-  background: conic-gradient(var(--col) calc(var(--val) * 1%), var(--color-lavender) 0);
+  background: conic-gradient(
+    var(--col) calc(var(--val) * 1%),
+    var(--color-cp-lavender) 0
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,7 +179,7 @@ h4 {
   content: "";
   position: absolute;
   inset: 8px;
-  background: #fff;
+  background: var(--color-cp-card);
   border-radius: 999px;
 }
 .ring-meter > .ring-val {
@@ -117,19 +187,19 @@ h4 {
   z-index: 1;
   font-weight: 600;
   font-size: 22px;
-  color: var(--color-ink);
+  color: var(--color-cp-ink);
   letter-spacing: -0.02em;
 }
 
 /* Quote block (strength evidence) */
 .quote-text::before {
   content: "“";
-  color: #C6C6CC;
+  color: var(--color-cp-quote-quote);
   margin-inline-end: 2px;
 }
 .quote-text::after {
   content: "”";
-  color: #C6C6CC;
+  color: var(--color-cp-quote-quote);
   margin-inline-start: 2px;
 }
 
@@ -151,7 +221,7 @@ h4 {
   width: 16px;
   height: 16px;
   border-radius: 999px;
-  background: var(--color-lavender);
+  background: var(--color-cp-lavender);
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -162,4 +232,11 @@ h4 {
   inset: 0;
   background: var(--color-purple);
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+/* Visible focus rings for keyboard nav */
+:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
