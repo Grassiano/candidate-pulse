@@ -39,14 +39,14 @@ export function TopNav() {
         <div className="flex items-center gap-2 sm:gap-[14px] shrink-0">
           <button
             aria-label="search"
-            className="sm:hidden w-11 h-11 rounded-full border border-(--color-border) bg-white inline-flex items-center justify-center text-(--color-muted)"
+            className="sm:hidden w-[44px] h-[44px] rounded-full border border-(--color-border) bg-white inline-flex items-center justify-center text-(--color-muted)"
           >
             <SearchIcon size={16} />
           </button>
           <div className="flex bg-[#F2F2F4] rounded-full p-[3px] text-[13px] font-medium">
             <button
               onClick={() => setLang("he")}
-              className={`px-3 py-[10px] sm:py-[5px] rounded-full leading-none inline-flex items-center transition ${
+              className={`px-3 min-h-[38px] sm:min-h-0 sm:py-[5px] rounded-full leading-none inline-flex items-center transition ${
                 lang === "he"
                   ? "bg-white text-(--color-ink) shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                   : "text-(--color-muted)"
@@ -56,7 +56,7 @@ export function TopNav() {
             </button>
             <button
               onClick={() => setLang("en")}
-              className={`latin px-3 py-[10px] sm:py-[5px] rounded-full leading-none inline-flex items-center transition text-[12px] tracking-[0.02em] ${
+              className={`latin px-3 min-h-[38px] sm:min-h-0 sm:py-[5px] rounded-full leading-none inline-flex items-center transition text-[12px] tracking-[0.02em] ${
                 lang === "en"
                   ? "bg-white text-(--color-ink) shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                   : "text-(--color-muted)"
