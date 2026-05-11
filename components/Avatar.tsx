@@ -14,19 +14,22 @@ export function Avatar({
   initials,
   tone = "purple",
   size = "sm",
+  className,
 }: {
   initials: string;
   tone?: Tone;
   size?: "sm" | "lg";
+  className?: string;
 }) {
   const sizeClasses =
     size === "lg" ? "w-16 h-16 text-[22px]" : "w-9 h-9 text-[13px]";
   return (
     <div
       className={clsx(
-        "inline-flex items-center justify-center rounded-full font-semibold text-(--color-ink) border",
+        "inline-flex items-center justify-center rounded-full font-semibold text-(--color-ink) border shrink-0",
         sizeClasses,
         toneClasses[tone],
+        className,
       )}
     >
       {initials}
