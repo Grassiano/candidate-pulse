@@ -58,8 +58,8 @@
   --shadow-md: 0 2px 8px rgba(30, 26, 57, 0.05);
 }
 
-/* Dark mode token overrides */
-:where(.dark) {
+/* Dark mode token overrides — use html.dark for higher specificity than :root */
+html.dark {
   --color-cp-bg: #0E0B1F;
   --color-cp-card: #1A1532;
   --color-cp-card-2: #221C3F;
@@ -80,21 +80,19 @@
   --color-cp-overlay-mint: rgba(63, 224, 183, 0.10);
   --color-cp-overlay-mint-strong: rgba(63, 224, 183, 0.18);
   --color-cp-quote-quote: #4A436B;
-}
 
-/* Backwards-compat: also flip the legacy "--color-*" tokens in dark mode so
-   any class that still references them adapts automatically. */
-:where(.dark) {
-  --color-card: var(--color-cp-card);
-  --color-bg: var(--color-cp-bg);
-  --color-ink: var(--color-cp-ink);
-  --color-ink-deep: var(--color-cp-ink-soft);
-  --color-muted: var(--color-cp-muted);
-  --color-border: var(--color-cp-border);
-  --color-border-strong: var(--color-cp-border-strong);
-  --color-lavender: var(--color-cp-lavender);
-  --color-lavender-border: var(--color-cp-border-strong);
-  --color-gray-soft: var(--color-cp-border);
+  /* Backwards-compat: also flip legacy "--color-*" tokens so any old class
+     that still references them adapts automatically. */
+  --color-card: #1A1532;
+  --color-bg: #0E0B1F;
+  --color-ink: #F2EEFB;
+  --color-ink-deep: #D4C8FA;
+  --color-muted: #9E9AB5;
+  --color-border: #2A2447;
+  --color-border-strong: #3A3160;
+  --color-lavender: #2D2253;
+  --color-lavender-border: #3A3160;
+  --color-gray-soft: #2A2447;
 }
 
 * {
