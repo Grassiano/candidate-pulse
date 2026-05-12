@@ -1,7 +1,8 @@
 "use client";
-import { SearchIcon, BellIcon } from "./icons";
+import { SearchIcon } from "./icons";
 import { useSettings } from "./SettingsProvider";
 import { SettingsCog } from "./SettingsCog";
+import { NotificationsBell } from "./NotificationsBell";
 
 export function TopNav() {
   const { t } = useSettings();
@@ -46,16 +47,7 @@ export function TopNav() {
           >
             <SearchIcon size={16} />
           </button>
-          <button
-            aria-label={t("notifications")}
-            className="hidden sm:inline-flex w-[44px] h-[44px] rounded-full border border-(--color-cp-border) bg-(--color-cp-card) items-center justify-center text-(--color-cp-ink) relative"
-          >
-            <BellIcon size={16} />
-            <span
-              className="absolute top-[7px] end-2 w-[7px] h-[7px] bg-(--color-purple) rounded-full border-2 border-(--color-cp-card)"
-              aria-hidden
-            />
-          </button>
+          <NotificationsBell />
           <SettingsCog />
           <div className="latin w-[44px] h-[44px] rounded-full inline-flex items-center justify-center font-semibold text-[13px] text-(--color-cp-ink) bg-(--color-cp-lavender) border border-(--color-cp-border-strong)">
             L.O

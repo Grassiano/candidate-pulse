@@ -1,15 +1,28 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import { TopNav } from "@/components/TopNav";
 import { Footer } from "@/components/Footer";
 import { Avatar } from "@/components/Avatar";
 import { CompareIcon, PlusIcon, ChevLeft, ChevRight } from "@/components/icons";
-import { candidates, statusKeys, statusToneClass } from "@/lib/data";
+import {
+  candidates,
+  statusKeys,
+  statusToneClass,
+  type CandidateStatus,
+} from "@/lib/data";
 import { useSettings } from "@/components/SettingsProvider";
+import { NewInterviewModal } from "@/components/NewInterviewModal";
+
+type Filter = "all" | CandidateStatus;
 
 export default function DashboardPage() {
   const { t, lang } = useSettings();
   const ChevToDetail = lang === "he" ? ChevLeft : ChevRight;
+  const [filter, setFilter] = useState<Filter>("all");
+  const [newInterviewOpen, setNewInterviewOpen] = useState(false);
+
+  const visible = filter === "all" ? candidates : candidates.filter((c) => c.status === filter);
 
   return (
     <>
@@ -44,10 +57,18 @@ export default function DashboardPage() {
             </h2>
             <div className="flex items-center gap-[10px] -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto sm:overflow-visible no-scrollbar">
               <div className="flex items-center gap-[6px] shrink-0">
-                <FilterPill active>{t("filterAll")}</FilterPill>
-                <FilterPill>{t("filterAwaiting")}</FilterPill>
-                <FilterPill>{t("filterAdvanced")}</FilterPill>
-                <FilterPill>{t("filterOnHold")}</FilterPill>
+                <FilterPill active={filter === "all"} onClick={() => setFilter("all")}>
+                  {t("filterAll")}
+                </FilterPill>
+                <FilterPill active={filter === "awaiting"} onClick={() => setFilter("awaiting")}>
+                  {t("filterAwaiting")}
+                </FilterPill>
+                <FilterPill active={filter === "advanced"} onClick={() => setFilter("advanced")}>
+                  {t("filterAdvanced")}
+                </FilterPill>
+                <FilterPill active={filter === "on-hold"} onClick={() => setFilter("on-hold")}>
+                  {t("filterOnHold")}
+                </FilterPill>
               </div>
               {/* DESKTOP compare pill — sits between filters and primary CTA */}
               <Link
@@ -57,7 +78,10 @@ export default function DashboardPage() {
                 <CompareIcon />
                 {t("compareCandidates")}
               </Link>
-              <button className="inline-flex items-center gap-2 rounded-full px-4 py-[10px] min-h-[44px] font-medium text-[14px] bg-(--color-purple) text-white hover:bg-(--color-purple-deep) transition shrink-0">
+              <button
+                onClick={() => setNewInterviewOpen(true)}
+                className="inline-flex items-center gap-2 rounded-full px-4 py-[10px] min-h-[44px] font-medium text-[14px] bg-(--color-purple) text-white hover:bg-(--color-purple-deep) transition shrink-0"
+              >
                 <PlusIcon />
                 {t("newInterview")}
               </button>
@@ -87,7 +111,12 @@ export default function DashboardPage() {
 
           {/* Candidate list */}
           <div className="flex flex-col gap-3 sm:gap-[10px]">
-            {candidates.map((c) => {
+            {visible.length === 0 && (
+              <div className="rounded-2xl border border-(--color-cp-border) bg-(--color-cp-card) py-10 text-center text-(--color-cp-muted) text-[14px]">
+                {t("emptyStateNoResults")}
+              </div>
+            )}
+            {visible.map((c) => {
               const statusToneCls = statusToneClass[c.status];
               const isHighlight = c.justAnalyzed;
               return (
@@ -204,6 +233,8 @@ export default function DashboardPage() {
       </main>
 
       <Footer />
+
+      <NewInterviewModal open={newInterviewOpen} onClose={() => setNewInterviewOpen(false)} />
     </>
   );
 }
@@ -244,12 +275,16 @@ function StatCard({
 function FilterPill({
   children,
   active,
+  onClick,
 }: {
   children: React.ReactNode;
   active?: boolean;
+  onClick?: () => void;
 }) {
   return (
     <button
+      onClick={onClick}
+      aria-pressed={active}
       className={`inline-flex items-center px-[14px] py-[8px] min-h-[44px] rounded-full text-[13.5px] font-medium transition whitespace-nowrap ${
         active
           ? "bg-(--color-cp-lavender) text-(--color-cp-lavender-text)"

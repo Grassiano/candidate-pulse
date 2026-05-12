@@ -48,6 +48,41 @@ export const strings = {
   sourceResume: { he: "קו\"ח", en: "Resume" },
   sourceLinkedIn: { he: "לינקדאין", en: "LinkedIn" },
   sourceScreen: { he: "ראיון ראשוני", en: "Initial screen" },
+  newInterviewTitle: { he: "ראיון חדש", en: "New interview" },
+  newInterviewBody: {
+    he: "כאן יתאפשר להעלות הקלטת ראיון חדשה. הכלי יעבד את ההקלטה אוטומטית — תמלול, חוזקות, פתוחים, ומשימות — ויוסיף את המועמד לדשבורד.",
+    en: "This is where you'd upload a new interview recording. The tool will auto-process it — transcript, strengths, open items, and tasks — and add the candidate to the dashboard.",
+  },
+  newInterviewComingSoon: {
+    he: "בקרוב — זהו דמו",
+    en: "Coming soon — this is a demo",
+  },
+  uploadRecording: {
+    he: "העלה הקלטה",
+    en: "Upload recording",
+  },
+  cancel: { he: "ביטול", en: "Cancel" },
+  emptyStateNoResults: {
+    he: "אין מועמדים בקטגוריה הזו",
+    en: "No candidates in this category",
+  },
+  notif1: {
+    he: "Guy Grassiano נותח עכשיו",
+    en: "Guy Grassiano was just analyzed",
+  },
+  notif1Meta: { he: "לפני 12 דקות", en: "12 minutes ago" },
+  notif2: {
+    he: "Eitan M. עבר לסבב הבא",
+    en: "Eitan M. advanced to round 2",
+  },
+  notif2Meta: { he: "אתמול", en: "Yesterday" },
+  notif3: {
+    he: "תזכורת: ליישר ציפיות שכר עם גיא לפני סוף השבוע",
+    en: "Reminder: align salary expectations with Guy before EOW",
+  },
+  notif3Meta: { he: "לפני שעתיים", en: "2 hours ago" },
+  markAllRead: { he: "סמן הכל כנקרא", en: "Mark all as read" },
+  noNotifications: { he: "אין התראות חדשות", en: "No new notifications" },
   exportPdf: { he: "ייצוא PDF", en: "Export PDF" },
   sendToVPAI: { he: "שלח ל-VP AI", en: "Send to VP AI" },
   scheduleSecondRound: { he: "קבע סבב שני", en: "Schedule round 2" },
