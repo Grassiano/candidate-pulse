@@ -32,7 +32,7 @@ export const candidates: Candidate[] = [
     role: "AI Adoption Engineer",
     interviewDate: "9.5.2026",
     fitPct: 71,
-    status: "advanced",
+    status: "awaiting",
     avatarTone: "mint",
   },
   {

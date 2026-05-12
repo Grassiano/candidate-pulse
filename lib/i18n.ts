@@ -16,8 +16,8 @@ export const strings = {
   // Dashboard
   greeting: { he: "שלום ליאת", en: "Hi Liat" },
   greetingSub: {
-    he: "3 מועמדים מחכים לסקירה השבוע",
-    en: "3 candidates awaiting review this week",
+    he: "מועמדים מחכים לסקירה השבוע",
+    en: "candidates awaiting review this week",
   },
   statInterviewsThisWeek: { he: "ראיונות השבוע", en: "Interviews this week" },
   statAwaiting: { he: "מחכים לסקירה", en: "Awaiting review" },

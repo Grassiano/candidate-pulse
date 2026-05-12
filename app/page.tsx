@@ -23,6 +23,9 @@ export default function DashboardPage() {
   const [newInterviewOpen, setNewInterviewOpen] = useState(false);
 
   const visible = filter === "all" ? candidates : candidates.filter((c) => c.status === filter);
+  const awaitingCount = candidates.filter((c) => c.status === "awaiting").length;
+  const advancedCount = candidates.filter((c) => c.status === "advanced").length;
+  const onHoldCount = candidates.filter((c) => c.status === "on-hold").length;
 
   return (
     <>
@@ -37,7 +40,7 @@ export default function DashboardPage() {
                 {t("greeting")} <span className="font-normal">👋</span>
               </h1>
               <div className="text-(--color-cp-muted) text-[14px] sm:text-[15px] mt-[6px]">
-                {t("greetingSub")}
+                <span className="latin">{awaitingCount}</span> {t("greetingSub")}
               </div>
             </div>
           </div>
@@ -45,8 +48,8 @@ export default function DashboardPage() {
           {/* Stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-7 sm:mb-9">
             <StatCard label={t("statInterviewsThisWeek")} value="8" trend="+2" />
-            <StatCard label={t("statAwaiting")} value="3" dotColor="bg-(--color-purple)" />
-            <StatCard label={t("statAdvanced")} value="2" dotColor="bg-(--color-mint)" />
+            <StatCard label={t("statAwaiting")} value={String(awaitingCount)} dotColor="bg-(--color-purple)" />
+            <StatCard label={t("statAdvanced")} value={String(advancedCount)} dotColor="bg-(--color-mint)" />
             <StatCard label={t("statScheduled")} value="5" />
           </div>
 
