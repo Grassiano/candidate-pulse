@@ -1,4 +1,4 @@
-export type CandidateStatus = "awaiting" | "advanced" | "on-hold";
+export type CandidateStatus = "awaiting" | "advanced" | "rejected";
 
 export type Candidate = {
   slug: string;
@@ -52,7 +52,7 @@ export const candidates: Candidate[] = [
     role: "AI Adoption Engineer",
     interviewDate: "6.5.2026",
     fitPct: 62,
-    status: "on-hold",
+    status: "rejected",
     avatarTone: "yellow",
   },
   {
@@ -73,13 +73,13 @@ import type { StringKey } from "./i18n";
 export const statusKeys: Record<CandidateStatus, StringKey> = {
   awaiting: "statusAwaiting",
   advanced: "statusAdvanced",
-  "on-hold": "statusOnHold",
+  rejected: "statusRejected",
 };
 
 export const statusToneClass: Record<CandidateStatus, string> = {
   awaiting: "bg-(--color-cp-lavender) text-(--color-cp-lavender-text)",
   advanced: "bg-(--color-cp-mint-bg) text-(--color-cp-mint-text)",
-  "on-hold": "bg-(--color-cp-border) text-(--color-cp-ink)",
+  rejected: "bg-(--color-cp-border) text-(--color-cp-muted)",
 };
 
 // Strengths — i18n key references, no hardcoded text

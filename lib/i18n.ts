@@ -27,7 +27,7 @@ export const strings = {
   filterAll: { he: "הכל", en: "All" },
   filterAwaiting: { he: "ממתינים", en: "Awaiting" },
   filterAdvanced: { he: "עברו לסבב הבא", en: "Advanced" },
-  filterOnHold: { he: "בהמתנה", en: "On hold" },
+  filterRejected: { he: "נדחו", en: "Rejected" },
   newInterview: { he: "ראיון חדש", en: "New interview" },
   compareCandidates: { he: "השווה מועמדים", en: "Compare candidates" },
   compareAllN: { he: "השווה את 5 המועמדים", en: "Compare all 5 candidates" },
@@ -38,7 +38,7 @@ export const strings = {
   // Status pills
   statusAwaiting: { he: "ממתין לסקירה", en: "Awaiting review" },
   statusAdvanced: { he: "עבר לסבב הבא", en: "Advanced" },
-  statusOnHold: { he: "בהמתנה", en: "On hold" },
+  statusRejected: { he: "נדחה", en: "Rejected" },
 
   // Candidate detail
   candidatesBreadcrumb: { he: "מועמדים", en: "Candidates" },

@@ -25,7 +25,7 @@ export default function DashboardPage() {
   const visible = filter === "all" ? candidates : candidates.filter((c) => c.status === filter);
   const awaitingCount = candidates.filter((c) => c.status === "awaiting").length;
   const advancedCount = candidates.filter((c) => c.status === "advanced").length;
-  const onHoldCount = candidates.filter((c) => c.status === "on-hold").length;
+  const rejectedCount = candidates.filter((c) => c.status === "rejected").length;
 
   return (
     <>
@@ -69,8 +69,8 @@ export default function DashboardPage() {
                 <FilterPill active={filter === "advanced"} onClick={() => setFilter("advanced")}>
                   {t("filterAdvanced")}
                 </FilterPill>
-                <FilterPill active={filter === "on-hold"} onClick={() => setFilter("on-hold")}>
-                  {t("filterOnHold")}
+                <FilterPill active={filter === "rejected"} onClick={() => setFilter("rejected")}>
+                  {t("filterRejected")}
                 </FilterPill>
               </div>
               {/* DESKTOP compare pill — sits between filters and primary CTA */}
