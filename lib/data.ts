@@ -129,6 +129,249 @@ export const guyOpenItems: OpenItemRef[] = [
 
 export const guyNextStepKeys: StringKey[] = ["step1", "step2", "step3"];
 
+// Other candidates' detail content — bilingual inline, no fake quotes
+export type CandidateInsight = {
+  he: { title: string; description: string };
+  en: { title: string; description: string };
+  source: "resume" | "linkedin" | "screen";
+};
+
+export type OtherCandidateContent = {
+  slug: string;
+  fitHeadline: { he: string; en: string };
+  summaryBody: { he: string; en: string };
+  strengths: CandidateInsight[];
+  openItems: Array<{ title: { he: string; en: string }; body: { he: string; en: string } }>;
+  nextSteps: Array<{ he: string; en: string }>;
+};
+
+export const otherCandidates: Record<string, OtherCandidateContent> = {
+  "eitan-m": {
+    slug: "eitan-m",
+    fitHeadline: {
+      he: "מהנדס Python חזק עם רקע ML מוצק, אך החשיפה החוצה-פונקציונלית עדיין צרה.",
+      en: "Strong Python engineer with a solid ML background, but cross-functional exposure is still narrow.",
+    },
+    summaryBody: {
+      he: "איתן מגיע עם עומק הנדסי אמיתי וניסיון מעשי בבניית כלי AI פנימיים, וכבר התקדם לסבב עם ה-VP AI. הפער המרכזי הוא בצד האימוץ — עבודה מול משתמשים לא טכניים והובלת תהליכים רוחביים.",
+      en: "Eitan brings real engineering depth and hands-on experience building internal AI tooling, and has already advanced to the VP AI round. The main gap is on the adoption side — working with non-technical users and driving cross-org rollouts.",
+    },
+    strengths: [
+      {
+        he: { title: "עומק Python ו-ML", description: "חמש שנים של פיתוח Python מבוסס production עם דגש על pipelines ל-ML." },
+        en: { title: "Python and ML depth", description: "Five years of production Python development with a focus on ML pipelines." },
+        source: "resume",
+      },
+      {
+        he: { title: "בנייה מעשית של כלי AI", description: "בנה בעצמו מספר כלים פנימיים מבוססי LLM ששירתו צוותי מחקר." },
+        en: { title: "Hands-on AI tool building", description: "Personally built several internal LLM-based tools that served research teams." },
+        source: "linkedin",
+      },
+      {
+        he: { title: "חשיבה הנדסית מובנית", description: "הציג בשיחה תהליך חשיבה מסודר סביב ארכיטקטורה ו-trade-offs טכניים." },
+        en: { title: "Structured engineering thinking", description: "Walked through a clear architecture and trade-off framework during the screen." },
+        source: "screen",
+      },
+    ],
+    openItems: [
+      {
+        title: { he: "חשיפה חוצה-פונקציונלית", en: "Cross-functional exposure" },
+        body: {
+          he: "חסרות דוגמאות לעבודה רוחבית מול product, sales או operations.",
+          en: "Few examples of cross-functional work with product, sales, or operations.",
+        },
+      },
+      {
+        title: { he: "היקף תפקיד צר", en: "Narrow role scope" },
+        body: {
+          he: "התפקידים הקודמים היו ממוקדים IC הנדסי, פחות מתאימים לרוחב של AI Adoption.",
+          en: "Past roles were focused engineering IC, less aligned with the breadth of AI Adoption.",
+        },
+      },
+      {
+        title: { he: "הדרכת משתמשים לא טכניים", en: "Training non-technical users" },
+        body: {
+          he: "לא הציג ניסיון מובהק בהדרכה או onboarding של משתמשים שאינם מפתחים.",
+          en: "No clear experience training or onboarding users who are not developers.",
+        },
+      },
+    ],
+    nextSteps: [
+      { he: "לתאם שיחה עם ה-VP AI לסבב הבא.", en: "Schedule the next-round conversation with the VP AI." },
+      { he: "לבדוק דוגמאות קונקרטיות לעבודה חוצה-פונקציונלית.", en: "Probe for concrete cross-functional examples." },
+      { he: "לשאול על ניסיון בהדרכת משתמשים לא טכניים.", en: "Ask about experience training non-technical users." },
+    ],
+  },
+  "yael-r": {
+    slug: "yael-r",
+    fitHeadline: {
+      he: "מהנדסת ML עם עומק Python ומחשבה מחקרית, אך חסר ניסיון בהפעלה ו-shipping.",
+      en: "ML engineer with Python depth and a research mindset, but missing operating and shipping experience.",
+    },
+    summaryBody: {
+      he: "יעל הגיעה עם רקע מחקרי חזק וידע טכני שאינו מוטל בספק. השאלה המרכזית היא האם התפקיד — שמכוון לאימוץ ובנייה במוצר חי — מתאים למישהי שעד היום עבדה בעיקר במחקר ופחות בפועל מול משתמשים.",
+      en: "Yael brings a strong research background and unquestioned technical knowledge. The main question is whether this role — focused on adoption and building in a live product — fits someone whose work has been primarily research-oriented rather than user-facing.",
+    },
+    strengths: [
+      {
+        he: { title: "רקע מחקרי ב-ML", description: "תואר שני במחקר ML יישומי עם פרסומים בתחום." },
+        en: { title: "ML research background", description: "Applied ML master's with publications in the field." },
+        source: "resume",
+      },
+      {
+        he: { title: "עומק Python", description: "שליטה גבוהה ב-Python כולל ספריות ML מרכזיות כמו PyTorch ו-Hugging Face." },
+        en: { title: "Python depth", description: "Strong Python command, including core ML libraries like PyTorch and Hugging Face." },
+        source: "linkedin",
+      },
+      {
+        he: { title: "חשיבה מחקרית", description: "ניגשה לבעיות בשיחה בצורה אנליטית ומובנית, עם נטייה להבין לעומק לפני פתרון." },
+        en: { title: "Research mindset", description: "Approached problems in the screen analytically and methodically, preferring depth before solutions." },
+        source: "screen",
+      },
+    ],
+    openItems: [
+      {
+        title: { he: "חוסר ניסיון ב-shipping", en: "No shipping track record" },
+        body: {
+          he: "לא הציגה דוגמאות לפיצ'רים שעלו לפרודקשן ושימשו משתמשים אמיתיים.",
+          en: "Did not present examples of features that shipped to production and served real users.",
+        },
+      },
+      {
+        title: { he: "פרופיל IC ולא Operator", en: "IC profile, not operator" },
+        body: {
+          he: "המסלול עד היום הוא IC מחקרי, פחות מתאים לתפקיד שדורש הובלת תהליכים.",
+          en: "Career to date is a research IC track, less aligned with a role that requires driving processes.",
+        },
+      },
+      {
+        title: { he: "תחושת מוצר", en: "Product instinct" },
+        body: {
+          he: "לא ברור עד כמה היא מחוברת לצרכי משתמש ולא רק להיבטים אלגוריתמיים.",
+          en: "Unclear how connected she is to user needs versus purely algorithmic concerns.",
+        },
+      },
+    ],
+    nextSteps: [
+      { he: "לעשות שיחת התאמת היקף תפקיד.", en: "Run a scope-fit conversation." },
+      { he: "לבדוק סיפורי deployment לפרודקשן.", en: "Probe for production deployment stories." },
+      { he: "ליישר ציפיות סביב מיקוד התפקיד באימוץ.", en: "Align expectations around the role's adoption focus." },
+    ],
+  },
+  "omer-k": {
+    slug: "omer-k",
+    fitHeadline: {
+      he: "מנהל תהליכים בכיר עם תקשורת חזקה, אך פחות עדכני בכלי ה-AI החדשים.",
+      en: "Senior process leader with strong communication, but less current on the latest AI tooling.",
+    },
+    summaryBody: {
+      he: "עומר מגיע עם ניסיון מובהק בעיצוב תהליכים והטמעה פנימית בארגונים גדולים, ועם יכולת תקשורת ברורה. הסיכון הוא הסתגלות לקצב של חברה קטנה וצורך לעבוד ידיים בכלים שמתחדשים בכל שבוע.",
+      en: "Omer brings clear experience in process design and internal enablement at large organizations, alongside strong communication skills. The risk is adapting to a small-company pace and needing to work hands-on with tools that change weekly.",
+    },
+    strengths: [
+      {
+        he: { title: "עיצוב תהליכים", description: "ניסיון של עשור בעיצוב והטמעה של תהליכים תפעוליים בארגונים גדולים." },
+        en: { title: "Process design", description: "A decade of designing and rolling out operational processes at large organizations." },
+        source: "resume",
+      },
+      {
+        he: { title: "הטמעה ארגונית", description: "הוביל פרויקטי enablement פנימיים לצוותים של מאות אנשים." },
+        en: { title: "Internal enablement", description: "Led internal enablement projects for teams of hundreds." },
+        source: "linkedin",
+      },
+      {
+        he: { title: "תקשורת חזקה", description: "הציג רעיונות בשיחה בצורה ברורה ומובנית, עם יכולת תרגום בין קהלים." },
+        en: { title: "Strong communicator", description: "Presented ideas clearly and methodically in the screen, translating well across audiences." },
+        source: "screen",
+      },
+    ],
+    openItems: [
+      {
+        title: { he: "עדכניות בכלי AI", en: "Currency on AI tools" },
+        body: {
+          he: "פחות מעשי עם הדור האחרון של כלים — Claude Code, Codex, MCP — בהשוואה למועמדים אחרים.",
+          en: "Less hands-on with the latest generation of tools — Claude Code, Codex, MCP — compared to other candidates.",
+        },
+      },
+      {
+        title: { he: "סיכון אינרציה תאגידית", en: "Corporate-inertia risk" },
+        body: {
+          he: "הרקע הוא מארגונים גדולים — לא ברור איך יסתגל לקצב ולחוסר הוודאות של חברה קטנה.",
+          en: "Background is at large organizations — unclear how he'd adapt to small-company pace and ambiguity.",
+        },
+      },
+      {
+        title: { he: "זמן Ramp-up", en: "Ramp-up time" },
+        body: {
+          he: "סביר שייקח זמן עד שיגיע ל-productivity במחסנית ה-AI שלנו.",
+          en: "Likely to take time before reaching productivity on our AI stack.",
+        },
+      },
+    ],
+    nextSteps: [
+      { he: "לעשות probe לעומק טכני.", en: "Run a technical depth probe." },
+      { he: "לבדוק היכרות עם כלי AI עדכניים.", en: "Check familiarity with current AI tooling." },
+      { he: "להחליט אם ממשיכים או סוגרים.", en: "Decide whether to continue or decline." },
+    ],
+  },
+  "tamar-s": {
+    slug: "tamar-s",
+    fitHeadline: {
+      he: "פרופיל BizOps חזק עם תקשורת ויכולות חוצה-ארגון, אך עומק הנדסי לא ברור.",
+      en: "Strong BizOps profile with communication and cross-org range, but engineering depth is unclear.",
+    },
+    summaryBody: {
+      he: "תמר מציגה רקע ב-BizOps והטמעה פנימית עם תקשורת מצוינת ויכולת לעבוד בין צוותים. עם זאת, התפקיד דורש גם בנייה ידנית של כלים, וההיכרות שלה עם Python וצד ההנדסי נראית מוגבלת.",
+      en: "Tamar brings a BizOps and internal-enablement background with excellent communication and cross-team fluency. However, the role also requires hands-on tool building, and her Python and engineering exposure look limited.",
+    },
+    strengths: [
+      {
+        he: { title: "תקשורת מצוינת", description: "התבטאה בבהירות בשיחה והפגינה יכולת ניסוח חזקה לקהלים שונים." },
+        en: { title: "Excellent communication", description: "Spoke clearly in the screen and showed strong framing skills across audiences." },
+        source: "screen",
+      },
+      {
+        he: { title: "רקע BizOps והטמעה פנימית", description: "ניסיון בהובלת פרויקטי BizOps והטמעת כלים פנימיים בצוותים." },
+        en: { title: "BizOps and internal enablement background", description: "Experience leading BizOps initiatives and rolling out internal tooling across teams." },
+        source: "resume",
+      },
+      {
+        he: { title: "יכולת חוצה-פונקציונלית", description: "עבדה לאורך הקריירה עם product, sales ו-operations באותה הנשימה." },
+        en: { title: "Cross-functional range", description: "Has worked across product, sales, and operations throughout her career." },
+        source: "linkedin",
+      },
+    ],
+    openItems: [
+      {
+        title: { he: "טראק רקורד של בנייה", en: "Building track record" },
+        body: {
+          he: "מעט דוגמאות לכלים או תהליכים שהיא בנתה בעצמה בידיים.",
+          en: "Few examples of tools or processes she personally built hands-on.",
+        },
+      },
+      {
+        title: { he: "עומק הנדסי לא ברור", en: "Engineering depth unclear" },
+        body: {
+          he: "ההיכרות עם Python ועם פיתוח קוד נראית מוגבלת ולא מתועדת.",
+          en: "Familiarity with Python and code-level work looks limited and undocumented.",
+        },
+      },
+      {
+        title: { he: "יותר BizOps מאשר מהנדסת", en: "More BizOps than engineer" },
+        body: {
+          he: "הפרופיל נוטה יותר לכיוון BizOps ופחות לכיוון מהנדסת AI שבונה בעצמה.",
+          en: "The profile leans more toward BizOps than toward a hands-on AI engineer.",
+        },
+      },
+    ],
+    nextSteps: [
+      { he: "לבחון אפשרות לסקופ היברידי לתפקיד.", en: "Explore whether a hybrid role scope is possible." },
+      { he: "לבדוק את רמת הנוחות הטכנית.", en: "Probe technical comfort level." },
+      { he: "לשקול תפקיד חלופי שמתאים יותר.", en: "Consider an alternate role that fits better." },
+    ],
+  },
+};
+
 // Real transcript — speaker labels in English, body bilingual
 export type TranscriptLine = {
   speaker: "interviewer" | "candidate";

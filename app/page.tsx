@@ -49,6 +49,14 @@ export default function DashboardPage() {
                 <FilterPill>{t("filterAdvanced")}</FilterPill>
                 <FilterPill>{t("filterOnHold")}</FilterPill>
               </div>
+              {/* DESKTOP compare pill — sits between filters and primary CTA */}
+              <Link
+                href="/compare"
+                className="hidden sm:inline-flex items-center gap-2 rounded-full px-4 py-[10px] min-h-[44px] font-medium text-[14px] bg-(--color-cp-lavender) text-(--color-cp-lavender-text) hover:opacity-90 transition shrink-0"
+              >
+                <CompareIcon />
+                {t("compareCandidates")}
+              </Link>
               <button className="inline-flex items-center gap-2 rounded-full px-4 py-[10px] min-h-[44px] font-medium text-[14px] bg-(--color-purple) text-white hover:bg-(--color-purple-deep) transition shrink-0">
                 <PlusIcon />
                 {t("newInterview")}
@@ -56,16 +64,26 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Compare link */}
-          <div className="flex justify-start mb-[14px]">
-            <Link
-              href="/compare"
-              className="inline-flex items-center gap-1 text-(--color-cp-ink) text-[13px] font-medium px-[10px] py-[8px] min-h-[44px] rounded-full hover:bg-(--color-cp-bg) transition"
-            >
-              <CompareIcon />
-              {t("compareCandidates")}
-            </Link>
-          </div>
+          {/* MOBILE compare CTA banner — prominent card above the list */}
+          <Link
+            href="/compare"
+            className="sm:hidden flex items-center justify-between gap-3 mb-3 rounded-2xl border border-(--color-cp-border) bg-(--color-cp-card) shadow-(--shadow-soft) px-4 py-[14px] min-h-[56px] transition active:bg-(--color-cp-bg) touch-manipulation"
+          >
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-9 h-9 rounded-full bg-(--color-cp-lavender) text-(--color-cp-lavender-text) inline-flex items-center justify-center shrink-0">
+                <CompareIcon size={16} />
+              </div>
+              <div className="min-w-0">
+                <div className="font-semibold text-[14.5px] text-(--color-cp-ink) leading-tight">
+                  {t("compareAllN")}
+                </div>
+                <div className="text-(--color-cp-muted) text-[12px] mt-[2px]">
+                  {t("sideBySide")}
+                </div>
+              </div>
+            </div>
+            <ChevToDetail className="text-(--color-cp-muted) shrink-0" />
+          </Link>
 
           {/* Candidate list */}
           <div className="flex flex-col gap-3 sm:gap-[10px]">
@@ -182,13 +200,6 @@ export default function DashboardPage() {
             })}
           </div>
 
-          {/* Pagination */}
-          <div className="flex justify-center gap-2 mt-6 sm:mt-[26px]">
-            <span className="w-[22px] h-[7px] rounded-full bg-(--color-purple)" />
-            <span className="w-[7px] h-[7px] rounded-full bg-(--color-cp-border-strong)" />
-            <span className="w-[7px] h-[7px] rounded-full bg-(--color-cp-border-strong)" />
-            <span className="w-[7px] h-[7px] rounded-full bg-(--color-cp-border-strong)" />
-          </div>
         </div>
       </main>
 
